@@ -23,6 +23,8 @@
 
   background-color: var(--darklavender);
   text-align: center;
+
+  font-size: 1rem;
 }
 
 header {
@@ -34,6 +36,7 @@ header {
   justify-content: center;
   font-size: calc(10px + 1vmin);
   color: white;
+  padding-bottom: 2vh;
 }
 
 .logo {
@@ -41,34 +44,8 @@ header {
   pointer-events: none;
 }
 
-.review-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2vh
-}
-
-.review-card {
-  width: 90%;
-  list-style: none;
-  background-color: var(--lightlavender);
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: left;
-}
-
-.review-info {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  padding: 10px;
-  margin: 5px;
-
-}
-
-.review-img {
-  width: 100%;
-  padding: 0px;
+dl {
+  gap: 10px;
 }
 
 @media only screen and (min-width: 600px) {

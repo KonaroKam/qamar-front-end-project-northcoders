@@ -1,0 +1,43 @@
+.title {
+    /* text-decoration: underline; */
+    font-style: oblique 40deg;
+    /* font-size: norma; */
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.footer {
+    font-weight: 100;
+    font-size: smaller;
+    font-style: italic;
+
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-row-wrapped {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* gap: 10px; */
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.interactions {
+    font-size: large;
+    font-weight: 700;
+    text-transform: capitalize;
+}

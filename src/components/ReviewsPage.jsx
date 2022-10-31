@@ -21,7 +21,7 @@ export default function ReviewsPage() {
 	if (isLoading) return <h3>LOADING STUFF</h3>;
 	return (
 		<main>
-			<h2>All reviews</h2>
+			<h2 className="title">All reviews</h2>
 			<section>
 				<FilterBar />
 				<ul className="review-list">
