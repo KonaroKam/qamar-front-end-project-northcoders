@@ -4,7 +4,7 @@ export default function Header() {
 
 	return (
 		<header >
-				<div >
+				<div className="tealBG" >
 					<h1>
 						Qame Reviews
 						<img className="logo" alt="A 20 faced die" src={logo} />

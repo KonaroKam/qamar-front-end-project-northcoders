@@ -13,20 +13,25 @@
 }
 
 .App {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 100%;
   grid-template-rows: min-content auto auto;
   grid-template-areas:
     'header'
     'nav'
-    'content';
+    'content'; */
 
-  background-color: var(--darklavender);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  background-color: var(--lightlavender);
   text-align: center;
 
   font-size: 1rem;
-}
 
+  min-height: 100vh;
+}
 header {
   background-color: var(--teal);
   min-height: 10vh;
@@ -43,6 +48,7 @@ header {
   height: 10vmin;
   pointer-events: none;
 }
+
 
 dl {
   gap: 10px;
