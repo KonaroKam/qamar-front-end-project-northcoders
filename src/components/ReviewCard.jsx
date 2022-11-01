@@ -14,7 +14,9 @@ export default function ReviewCard({ review }) {
 
 	return (
 		<li className="review-card">
-			<p className="review-card__title title">{title}</p>
+			<div className="review-card__title title">
+				<p>{title}</p>
+			</div>
 			<img
 				className="review-card__img"
 				src={review_img_url}
@@ -31,7 +33,9 @@ export default function ReviewCard({ review }) {
 							.slice(0, 33)}
 					</p>
 				</div>
-				<p className="review-card__body">{review_body}</p>
+				<div>
+					<p className="review-card__body">{review_body}</p>
+				</div>
 			</div>
 		</li>
 	);
