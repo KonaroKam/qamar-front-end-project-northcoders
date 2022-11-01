@@ -5,8 +5,6 @@
     gap: 2vh
 }
 
-
-
 .review-card {
     width: 90%;
     height: 20vh;
@@ -23,12 +21,16 @@
     grid-template-areas: "header header header image" "info info info info";
 }
 
-.review-list:hover .review-card{
+
+
+
+.review-list:hover .review-card {
     filter: blur(1px);
     /* transform: scale(); */
     opacity: 0.5;
 }
-.review-list .review-card:hover{
+
+.review-list .review-card:hover {
     filter: blur(0px);
     transform: scale(1.03);
     opacity: 1;
@@ -40,14 +42,51 @@
     width: 100%;
     height: 100%;
     max-height: 8vh;
-
     padding: 2vh;
-
     display: flex;
     align-items: center;
-
     color: ghostwhite;
+}
 
+.single {
+    height: fit-content;
+    max-height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.single__img {
+    width: 100%;
+    max-height: 50vh;
+    overflow: scroll;
+    object-fit: cover;
+}
+
+.single-review-card:hover .absolute {
+    filter: blur(1px);
+    opacity: 0.5;
+}
+
+.single-review-card .absolute:hover {
+    filter: blur(0px);
+    opacity: 1;
+}
+
+
+.absolute {
+    object-fit: contain;
+    max-width: 90vw;
+    max-height: 90vh;
+    position: absolute;
+
+    filter: blur(0px);
+    transform: scale(1.03);
+    opacity: 1;
 }
 
 .review-card__title p {
@@ -91,6 +130,23 @@
     text-overflow: ellipsis;
 }
 
-.singleReviewCard{
 
+.single-review-card {
+    width: 90vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+    margin-top: 4vh;
+
+    color: ghostwhite;
+    background-color: var(--darklavender);
+    border: 3px solid var(--teal);
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: left;
+
+    position: relative;
 }

@@ -27,7 +27,7 @@ export default function ReviewCard({ review }) {
 					<p aria-label="number of likes and comments">{votes} 💚</p>
 					<p aria-label="number of comments">{comment_count} 💬</p>
 					<p className="footer">
-						{new Date(created_at.replace(" ", "T")).toString()}
+						{new Date(created_at.replace(" ", "T")).toUTCString()}
 					</p>
 				</div>
 			</div>

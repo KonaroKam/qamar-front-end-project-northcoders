@@ -22,7 +22,7 @@ function App() {
 					path="/category/:category"
 					element={<ReviewsPage tag="Only " />}
 				/>
-				<Route path="/review/:review_id" element={<SingleReview />} />
+				<Route path="/reviews/:review_id" element={<SingleReview />} />
 			</Routes>
 		</div>
 	);
