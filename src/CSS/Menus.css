@@ -1,0 +1,30 @@
+nav,
+.menuBar {
+    background-color: var(--darklavender);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.linkOptions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+button,
+a {
+    color: ghostwhite;
+    background-color: var(--teal);
+    border: solid 2px var(--darklavender);
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    max-width: 50%;
+    text-transform: capitalize;
+    text-decoration: none;
+}

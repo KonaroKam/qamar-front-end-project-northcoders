@@ -3,15 +3,17 @@
     font-style: oblique 40deg;
     /* font-size: norma; */
     font-weight: 900;
-    text-transform: uppercase;
+    text-transform: capitalize;
     padding: 10px;
 }
 
 .footer {
-    font-weight: 100;
+    font-weight: 350;
     font-size: smaller;
     font-style: italic;
-
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .flex-row {
@@ -23,7 +25,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* gap: 10px; */
 }
 
 .flex-col {
@@ -39,6 +40,15 @@
 
 .interactions {
     font-size: large;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: capitalize;
+    display: grid;
+    grid-template: 1fr/ 1fr 1fr 2fr;
+    grid-template-areas: "likes  date";
+    align-items: center;
+}
+
+.tealBG {
+    background-color: var(--teal);
+    color: white;
 }
