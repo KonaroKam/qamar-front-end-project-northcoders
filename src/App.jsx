@@ -1,17 +1,17 @@
-import './App.css';
-import { useState } from 'react';
-import { Routes, Route } from "react-router-dom"
-import { UserContext } from "./contexts/UserContext"
+import "./CSS/App.css";
+import "./CSS/reusable.css";
+import "./CSS/Reviews.css";
 
+import Header from "./components/persistent/Header";
+import ReviewsPage from "./components/ReviewsPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>My lovely NC games app</h1>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Header />
+			<ReviewsPage />
+		</div>
+	);
 }
 
 export default App;
