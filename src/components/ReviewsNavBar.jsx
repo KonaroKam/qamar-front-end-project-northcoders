@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getCategories } from "../GamesAPI";
-import Loading from "./Loading";
+import Loading from "./persistent/Loading";
 
 export default function ReviewsNavBar() {
 	const [isLoading, setLoading] = useState(true);

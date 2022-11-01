@@ -5,6 +5,7 @@ nav,
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    
     align-items: center;
     justify-content: space-around;
     padding: 10px;
@@ -14,10 +15,12 @@ nav,
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 button,
-a {
+.menuBar a {
     color: ghostwhite;
     background-color: var(--teal);
     border: solid 2px var(--darklavender);

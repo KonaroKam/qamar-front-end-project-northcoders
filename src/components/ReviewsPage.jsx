@@ -6,7 +6,7 @@ import ReviewsNavBar from "./ReviewsNavBar";
 
 import { getReviews } from "../GamesAPI";
 import { useParams } from "react-router-dom";
-import Loading from "./Loading";
+import Loading from "./persistent/Loading";
 
 export default function ReviewsPage({ tag }) {
 	const [reviews, setReviews] = useState([{}]);
