@@ -31,6 +31,7 @@ export default function ReviewsPage({ tag }) {
 			<h2 className="title">
 				{tag} {category ? `${category} game reviews` : ""}
 			</h2>
+
 			<section>
 				<FilterBar />
 				<ul className="review-list">

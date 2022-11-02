@@ -5,7 +5,7 @@
 }
 
 :root {
-  --darklavender: #6A5B6E;
+  --darklavender:rgb( 106, 91, 110);
   --lightlavender: #CCC9DC;
   --teal: #0F7173;
   --darkgreen: #001514;
@@ -13,16 +13,10 @@
 }
 
 .App {
-
-
-    display: flex;
-    flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
   background-color: var(--lightlavender);
   text-align: center;
-
-  /* font-size: 1rem; */
-
   min-height: 100vh;
 }
 
@@ -39,12 +33,13 @@
   text-decoration: none;
 }
 
+
 .logo {
   height: 10vmin;
   pointer-events: none;
 }
 
-.logoFaster{
+.logoFaster {
   height: 20%;
   width: 20%;
 
@@ -53,15 +48,18 @@
   pointer-events: none;
 }
 
-.loading{
+.loading {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-dl {
-  gap: 10px;
+a{
+  text-decoration: none;
+  color: black;
 }
+
+
 
 @media only screen and (min-width: 600px) {
   .App {
@@ -78,7 +76,8 @@ dl {
   .logo {
     animation: App-logo-spin infinite 20s linear;
   }
-  .logoFaster{
+
+  .logoFaster {
     animation: App-logo-spin infinite 5s linear;
 
   }
