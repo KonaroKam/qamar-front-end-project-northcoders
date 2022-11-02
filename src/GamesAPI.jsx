@@ -21,10 +21,17 @@ export function getReviewByID(ID) {
 }
 
 export function getCategories() {
-	return api.get('/categories').then(({ data }) => {
+	return api.get("/categories").then(({ data }) => {
 		return data.categories;
 	});
 }
 
-
 // ALL OTHER REQUESTS
+
+export function patchReviewVotes(ID, voted) {
+	return api
+		.patch(`/reviews/${ID}`, voted ? { inc_votes: -1 } : { inc_votes: 1 })
+		.then(({ data }) => {
+			return data.updatedReview;
+		});
+}
