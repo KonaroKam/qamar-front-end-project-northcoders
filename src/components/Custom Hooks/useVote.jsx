@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { patchReviewVotes } from "../../GamesAPI";
 
 export const useVote = (review_id) => {
-	const [voted, setVoted] = useState(false);
+	const [votedStatus, setVoted] = useState(false);
 
 	const handleVote = () => {
-		setVoted(!voted);
-		patchReviewVotes(review_id, voted)
+		setVoted(!votedStatus);
+		patchReviewVotes(review_id, votedStatus)
 			.then((data) => {
 				console.log("data: ", data);
 			})
@@ -15,5 +15,7 @@ export const useVote = (review_id) => {
 			});
 	};
 
-	return { voted, handleVote };
+	
+
+	return { votedStatus, handleVote };
 };

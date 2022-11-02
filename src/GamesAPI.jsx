@@ -28,9 +28,9 @@ export function getCategories() {
 
 // ALL OTHER REQUESTS
 
-export function patchReviewVotes(ID, voted) {
+export function patchReviewVotes(ID, votedStatus) {
 	return api
-		.patch(`/reviews/${ID}`, voted ? { inc_votes: -1 } : { inc_votes: 1 })
+		.patch(`/reviews/${ID}`, votedStatus ? { inc_votes: -1 } : { inc_votes: 1 })
 		.then(({ data }) => {
 			return data.updatedReview;
 		});

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useVote } from "./Custom Hooks/useVote";
+import Votes from "./Votes";
 
 export default function ReviewCard({ review }) {
 	const {
@@ -12,7 +13,7 @@ export default function ReviewCard({ review }) {
 		votes,
 	} = review;
 
-	const { voted, handleVote } = useVote(review_id);
+	const { votedStatus, handleVote } = useVote(review_id);
 
 	return (
 		<li className="review-card ">
@@ -32,9 +33,7 @@ export default function ReviewCard({ review }) {
 					<p className="review-card__body">{review_body}</p>
 				</div>
 				<div className="interactions">
-					<button aria-label="number of likes" onClick={handleVote}>
-						{voted ? `${votes + 1} 💚` : `${votes} 🤍`}
-					</button>
+					<Votes review_id={review_id} votes={votes} />
 					<p aria-label="number of comments">{comment_count} 💬</p>
 					<p className="footer">
 						{new Date(created_at.replace(" ", "T")).toUTCString()}
