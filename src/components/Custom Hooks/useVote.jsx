@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { patchReviewVotes } from "../../GamesAPI";
 
 export const useVote = (review_id) => {

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useVote } from "./Custom Hooks/useVote";
 import Votes from "./Votes";
 
 export default function ReviewCard({ review }) {
@@ -13,7 +12,6 @@ export default function ReviewCard({ review }) {
 		votes,
 	} = review;
 
-	const { votedStatus, handleVote } = useVote(review_id);
 
 	return (
 		<li className="review-card ">
