@@ -14,6 +14,11 @@ export function getReviews(category) {
 		return data.reviews;
 	});
 }
+export function getReviewByID(ID) {
+	return api.get(`/reviews/${ID}`).then(({ data }) => {
+		return data.review;
+	});
+}
 
 export function getCategories() {
 	return api.get('/categories').then(({ data }) => {

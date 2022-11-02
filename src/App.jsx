@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/persistent/Header";
 import ReviewsPage from "./components/ReviewsPage";
+import SingleReview from "./components/SingleReview";
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 					path="/category/:category"
 					element={<ReviewsPage tag="Only " />}
 				/>
+				<Route path="/reviews/:review_id" element={<SingleReview />} />
 			</Routes>
 		</div>
 	);

@@ -1,7 +1,10 @@
 .title {
-    /* text-decoration: underline; */
-    font-style: oblique 40deg;
-    /* font-size: norma; */
+    width: 100%;
+    height:fit-content ;
+    background-color: var(--teal);
+    color: ghostwhite;
+    font-size: 1.3rem;
+    font-style: oblique;
     font-weight: 900;
     text-transform: capitalize;
     padding: 10px;
@@ -51,4 +54,8 @@
 .tealBG {
     background-color: var(--teal);
     color: white;
+}
+
+.justified{
+    text-align: justify;
 }

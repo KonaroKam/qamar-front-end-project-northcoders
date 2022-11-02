@@ -6,7 +6,7 @@ import ReviewsNavBar from "./ReviewsNavBar";
 
 import { getReviews } from "../GamesAPI";
 import { useParams } from "react-router-dom";
-import Loading from "./Loading";
+import Loading from "./persistent/Loading";
 
 export default function ReviewsPage({ tag }) {
 	const [reviews, setReviews] = useState([{}]);
@@ -31,6 +31,7 @@ export default function ReviewsPage({ tag }) {
 			<h2 className="title">
 				{tag} {category ? `${category} game reviews` : ""}
 			</h2>
+
 			<section>
 				<FilterBar />
 				<ul className="review-list">

@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+
 export default function ReviewCard({ review }) {
 	const {
 		review_img_url,
+		review_id,
 		title,
 		review_body,
 		created_at,
@@ -9,9 +12,11 @@ export default function ReviewCard({ review }) {
 	} = review;
 
 	return (
-		<li className="review-card">
+		<li className="review-card ">
 			<div className="review-card__title title">
-				<p>{title}</p>
+				<Link to={`/reviews/${review_id}`}>
+					<p className="">{title}</p>
+				</Link>
 			</div>
 			<img
 				className="review-card__img"
@@ -24,10 +29,10 @@ export default function ReviewCard({ review }) {
 					<p className="review-card__body">{review_body}</p>
 				</div>
 				<div className="interactions">
-					<p aria-label="number of likes and comments">{votes} 💚</p>
+					<p aria-label="number of likes">{votes} 💚</p>
 					<p aria-label="number of comments">{comment_count} 💬</p>
 					<p className="footer">
-						{new Date(created_at.replace(" ", "T")).toString()}
+						{new Date(created_at.replace(" ", "T")).toUTCString()}
 					</p>
 				</div>
 			</div>
