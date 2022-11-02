@@ -26,5 +26,11 @@ export function getCategories() {
 	});
 }
 
+export function getCommentsByReviewID(ID) {
+	return api.get(`/reviews/${ID}/comments`).then(({ data }) => {
+		return data.comments;
+	});
+
+}
 
 // ALL OTHER REQUESTS

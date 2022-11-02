@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewByID } from "../GamesAPI";
+import Comments from "./Comments";
 import Loading from "./persistent/Loading";
 
 export default function SingleReview() {
@@ -22,10 +23,9 @@ export default function SingleReview() {
 		});
 	}, [review_id]);
 
-
 	if (isLoading) return <Loading />;
 	return (
-		<main className="single-review-card ">
+		<main className="single-review-card flex-col flex-center">
 			<div className="review-card__title single">
 				<figure
 					className={
@@ -47,7 +47,7 @@ export default function SingleReview() {
 			</div>
 			<h2 className="title">{singleReview.title}</h2>
 			<section className="info flex-col flex-center">
-				<dl>
+				<dl className="flex-col">
 					<dt>Review #{review_id}</dt>
 					<dd>
 						Review of {singleReview.category} game / Designed by {singleReview.designer}
@@ -71,6 +71,7 @@ export default function SingleReview() {
 				<div className="review-body">
 					<dt>Review:</dt>
 					<dd className="justified">{singleReview.review_body}</dd>
+					<Comments review_id={review_id} className="comments"/>
 				</div>
 			</section>
 		</main>
