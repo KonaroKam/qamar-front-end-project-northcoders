@@ -6,11 +6,11 @@ const api = axios.create({
 
 // ALL GET REQUESTS
 
-export function getReviews(category) {
+export function getReviews(category, sort, order) {
 	let path = `/reviews`;
-	path += category ? `/?category=${category}` : "";
 
-	return api.get(path).then(({ data }) => {
+	return api.get(path, {params: {category, sort, order}}).then(({ data }) => {
+		console.log('category, sort, order: ', category, sort, order);
 		return data.reviews;
 	});
 }

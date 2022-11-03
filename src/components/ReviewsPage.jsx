@@ -5,13 +5,23 @@ import FilterBar from "./FilterBar";
 import ReviewsNavBar from "./ReviewsNavBar";
 
 import { getReviews } from "../GamesAPI";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import Loading from "./persistent/Loading";
 
 export default function ReviewsPage({ tag }) {
+	let [searchParams, setSearchParams] = useSearchParams();
+	console.log('searchParams: ', searchParams);
+
+const { category, sort, order } = useParams();
+console.log('RPAGE category, sort, order: ', category, sort, order);
 	const [reviews, setReviews] = useState(null);
+	const [parameters, setParameters] = useState({
+		sort: "review_id",
+		order: "asc",
+	});
+
 	const [isLoading, setLoading] = useState(true);
-	const { category, sort, order } = useParams();
+	
 
 	useEffect(() => {
 		setLoading(true);
@@ -19,7 +29,7 @@ export default function ReviewsPage({ tag }) {
 			setReviews(response);
 			setLoading(false);
 		});
-	}, [category]);
+	}, [category, sort, order]);
 
 	if (isLoading) return <Loading />;
 	return (
@@ -33,7 +43,7 @@ export default function ReviewsPage({ tag }) {
 			</h2>
 
 			<section>
-				<FilterBar />
+				<FilterBar setParameters={setParameters} parameters={parameters}/>
 				<ul className="review-list">
 					{reviews.map((review) => {
 						return (

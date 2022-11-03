@@ -2,7 +2,7 @@ import "./CSS/App.css";
 import "./CSS/reusable.css";
 import "./CSS/Reviews.css";
 import "./CSS/Menus.css";
-import "./CSS/Comments.css"
+import "./CSS/Comments.css";
 
 import { Routes, Route } from "react-router-dom";
 

@@ -5,14 +5,13 @@ export const useVote = (review_id) => {
 	const [votedStatus, setVoted] = useState(false);
 
 	const handleVote = () => {
-		setVoted(!votedStatus);
-		patchReviewVotes(review_id, votedStatus)
-			.catch((err) => {
-				setVoted(false);
-			});
+		setVoted((currStatus) => {
+			return !currStatus;
+		});
+		patchReviewVotes(review_id, votedStatus).catch((err) => {
+			setVoted(false);
+		});
 	};
-
-	
 
 	return { votedStatus, handleVote };
 };

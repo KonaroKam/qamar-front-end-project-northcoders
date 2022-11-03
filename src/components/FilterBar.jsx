@@ -1,43 +1,40 @@
 import { useEffect, useState } from "react";
-import { getReviews } from "../GamesAPI";
+import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
 
-export default function FilterBar() {
-	const [formParameters, setFormParameters] = useState({
-		sortField: "review_id",
-		orderBy: "asc",
-	});
+export default function FilterBar({parameters, setParameters}) {
 
-	const [categories, setCategories] = useState([]);
-	useEffect(() => {
-		getReviews().then((categories) => {
-			setCategories(categories);
-		});
-	}, []);
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const { category, sort, order } = searchParams;
+    console.log(' SEARCH PARAMcategory, sort, order : ',  category, sort, order );
+    console.log('searchParams: ', searchParams);
 
 	const handleChange = (key, input) => {
-		setFormParameters((current) => {
+		setParameters((current) => {
 			return { ...current, [key]: input };
 		});
 	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+        setSearchParams(
+            createSearchParams({sort: parameters.sort, order: parameters.order}))
 	};
 
 	return (
 		<form className="filter flex-col" onSubmit={handleSubmit}>
-			<h3>All Available {formParameters.category} Items!</h3>
+			<h3>All Available {parameters.category} Items!</h3>
 			<fieldset className="flex-row">
 
-				<label htmlFor="sortFilter">
+				<label htmlFor="sort">
 					Sort 
 					<select
-						id="sortFilter"
+						id="sort"
 						type="dropdown"
 						onChange={(event) => {
-							handleChange("sortField", event.target.value);
+							handleChange("sort", event.target.value);
 						}}
-						defaultValue={formParameters.sortField}
+						defaultValue={parameters.sort}
 					>
 						<option value="review_id">None</option>
 						<option value="created_at">Date</option>
@@ -45,15 +42,15 @@ export default function FilterBar() {
 						<option value="votes">Votes</option>
 					</select>
 				</label>
-				<label htmlFor="orderFilter">
+				<label htmlFor="order">
 					Order
 					<select
-						id="orderFilter"
+						id="order"
 						type="dropdown"
 						onChange={(event) => {
-							handleChange("orderBy", event.target.value);
+							handleChange("order", event.target.value);
 						}}
-						defaultValue={formParameters.orderBy}
+						defaultValue={parameters.order}
 					>
 						<option value="asc">Ascending</option>
 						<option value="desc">Descending</option>
