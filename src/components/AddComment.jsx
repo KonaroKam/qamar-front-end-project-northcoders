@@ -19,12 +19,6 @@ export default function AddComment({ review_id }) {
 		}
 	}, [hasSubmit]);
 
-	// const handleChange = (key, input) => {
-	// 	setFormParameters((current) => {
-	// 		return { ...current, [key]: input };
-	// 	});
-	// };
-
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		setFormParameters((current) => {

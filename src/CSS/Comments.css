@@ -34,10 +34,18 @@
     padding: 1rem;
     min-width: 100%;
     max-width: 100%;
+    border: 3px solid var(--darklavender);
+    border-radius: 10px;
+    background-color: var(----lightlavender);
+}
+
+#newCommentBox:focus {
+    background-color: rgb(240, 234, 255);
 }
 
 .newComment {
     border: 3px solid var(--darklavender50opacity);
+    border-radius: 10px;
     background-color: var(--darklavender);
     color: ghostwhite;
     padding: 1rem;

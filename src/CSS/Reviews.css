@@ -157,10 +157,6 @@ figure {
 
 }
 
-/* .single-review-card h2 {
-    text-align: center;
-} */
-
 .single-review-card h3 {
     padding: 1rem;
 }
@@ -200,10 +196,8 @@ figure {
 }
 
 .info {
-    /* justify-self: center; */
     margin-top: 10px;
     height: min-content;
-    /* max-height: 100vh; */
     padding-bottom:  2rem;
     display: flex;
     flex-direction: column;
@@ -219,7 +213,6 @@ figure {
 
     font-weight: 600;
     background-color: transparent;
-    /* padding: 10px; */
     border: 0px;
     padding: 0px;
     width: fit-content;
