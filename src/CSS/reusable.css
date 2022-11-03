@@ -60,14 +60,17 @@
     text-align: justify;
 }
 
-.likedEmoji {
-
-    color: transparent;
-    text-shadow: 0 0 0 var(--teal);
-
+.center {
+    justify-content: center;
+    text-align: center;
 }
 
-.notLikedEmoji {
+.likedEmoji {
+    color: transparent;
+    text-shadow: 0 0 0 var(--teal);
+}
+
+.darkLavEmoji {
     color: transparent;
     text-shadow: 0 0 0 var(--darklavender);
 }

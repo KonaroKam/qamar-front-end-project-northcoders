@@ -7,9 +7,6 @@ export const useVote = (review_id) => {
 	const handleVote = () => {
 		setVoted(!votedStatus);
 		patchReviewVotes(review_id, votedStatus)
-			.then((data) => {
-				console.log("data: ", data);
-			})
 			.catch((err) => {
 				setVoted(false);
 			});

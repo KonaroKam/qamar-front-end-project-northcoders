@@ -16,7 +16,24 @@ export default function Comments({ review_id }) {
 	}, [review_id]);
 
 	if (isLoading) return <Loading />;
-	return <dl>
-        <dt>Comments:</dt>
-        {comments.map((comment)=>{return <dt>potato</dt>})}</dl>;
+	return (
+		<section className="comments">
+			<h2 className="listHeadings">Comments:</h2>
+			{comments.map((comment) => {
+				return (
+					<dl className="individual__comment">
+						<dd>{comment.body}</dd>
+						<div className="comment-details">
+						<dd className="darkLavEmoji">{comment.votes} 💚</dd>
+						<dt>By {comment.author}</dt>
+						<dd className="footer">
+							{new Date(
+								comment.created_at.replace(" ", "T")
+							).toUTCString()}
+						</dd></div>
+					</dl>
+				);
+			})}
+		</section>
+	);
 }
