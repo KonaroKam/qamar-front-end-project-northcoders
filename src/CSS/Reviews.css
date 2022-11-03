@@ -17,7 +17,7 @@
     text-align: left;
 
     display: grid;
-    grid-template: 0.8fr 1.1fr / 1fr 1fr 1fr 1fr;
+    grid-template: 0.8fr 1.2fr / 1fr 1fr 1fr 1fr;
     grid-template-areas: "header header header image" "info info info info";
     justify-content: center;
 }
@@ -180,6 +180,10 @@ figure {
     gap: 2rem;
 }
 
+.review-body dd {
+    padding-bottom: 20px;
+}
+
 .review-body {
     width: 90%;
     height: fit-content;
@@ -210,4 +214,32 @@ figure {
 .comments {
     width: 100%;
     padding: 0px;
+}
+
+.likeButton {
+    color: black;
+    font-size: large;
+
+    font-weight: 600;
+    background-color: transparent;
+    /* padding: 10px; */
+    border: 0px;
+    padding: 0px;
+    width: fit-content;
+    max-width: 5rem;
+    text-align: left;
+}
+
+.likeButton {
+    color: black;
+    font-size: large;
+
+    font-weight: 600;
+    background-color: transparent;
+    /* padding: 10px; */
+    border: 0px;
+    padding: 0px;
+    width: fit-content;
+    max-width: 5rem;
+    text-align: left;
 }

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getReviewByID } from "../GamesAPI";
 import Comments from "./Comments";
 import Loading from "./persistent/Loading";
+import Votes from "./Votes";
 
 export default function SingleReview() {
 	const { review_id } = useParams();
@@ -50,7 +51,8 @@ export default function SingleReview() {
 				<dl className="flex-col">
 					<dt>Review #{review_id}</dt>
 					<dd>
-						Review of {singleReview.category} game / Designed by {singleReview.designer}
+						Review of {singleReview.category} game / Designed by{" "}
+						{singleReview.designer}
 					</dd>
 					<dd>
 						By {singleReview.owner} / On{" "}
@@ -58,17 +60,18 @@ export default function SingleReview() {
 							singleReview.created_at.replace(" ", "T")
 						).toUTCString()}
 					</dd>
-
-					<dd>
-						<p aria-label="number of likes">
-							{singleReview.votes} 💚
-						</p>
-						<p aria-label="number of comments">
-							{singleReview.comment_count} 💬{" "}
-						</p>
-					</dd>
 				</dl>
 				<div className="review-body">
+					<dd>
+						<Votes
+							review_id={review_id}
+							votes={singleReview.votes}
+						/>
+
+						<p aria-label="number of comments">
+							{singleReview.comment_count} 💬
+						</p>
+					</dd>
 					<dt>Review:</dt>
 					<dd className="justified">{singleReview.review_body}</dd>
 					<Comments review_id={review_id} className="comments"/>

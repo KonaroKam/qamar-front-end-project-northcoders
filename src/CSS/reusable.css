@@ -1,6 +1,6 @@
 .title {
     width: 100%;
-    height:fit-content ;
+    height: fit-content;
     background-color: var(--teal);
     color: ghostwhite;
     font-size: 1.3rem;
@@ -56,6 +56,18 @@
     color: white;
 }
 
-.justified{
+.justified {
     text-align: justify;
+}
+
+.likedEmoji {
+
+    color: transparent;
+    text-shadow: 0 0 0 var(--teal);
+
+}
+
+.notLikedEmoji {
+    color: transparent;
+    text-shadow: 0 0 0 var(--darklavender);
 }
