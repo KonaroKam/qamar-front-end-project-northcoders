@@ -11,11 +11,11 @@ import Loading from "./persistent/Loading";
 export default function ReviewsPage({ tag }) {
 	const [reviews, setReviews] = useState(null);
 	const [isLoading, setLoading] = useState(true);
-	const { category } = useParams();
+	const { category, sort, order } = useParams();
 
 	useEffect(() => {
 		setLoading(true);
-		getReviews(category).then((response) => {
+		getReviews(category, sort, order).then((response) => {
 			setReviews(response);
 			setLoading(false);
 		});
