@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewByID } from "../GamesAPI";
+import Comments from "./Comments";
 import Loading from "./persistent/Loading";
 import Votes from "./Votes";
 
@@ -25,7 +26,7 @@ export default function SingleReview() {
 
 	if (isLoading) return <Loading />;
 	return (
-		<main className="single-review-card ">
+		<main className="single-review-card flex-col flex-center">
 			<div className="review-card__title single">
 				<figure
 					className={
@@ -35,7 +36,7 @@ export default function SingleReview() {
 					<figcaption>
 						{isAbsolute
 							? "click image to close"
-							: "click image to enlarge"}
+							: "scroll through. and click image to enlarge"}
 					</figcaption>
 					<img
 						className="single__img"
@@ -45,10 +46,10 @@ export default function SingleReview() {
 					/>
 				</figure>
 			</div>
-			<h2 className="title">{singleReview.title}</h2>
+			<h2 className="review-card__title center">{singleReview.title}</h2>
 			<section className="info flex-col flex-center">
-				<dl>
-					<dt>Review #{review_id}</dt>
+				<dl className="flex-col review__info">
+					<dt className="listHeadings">Review #{review_id}</dt>
 					<dd>
 						Review of {singleReview.category} game / Designed by{" "}
 						{singleReview.designer}
@@ -67,12 +68,13 @@ export default function SingleReview() {
 							votes={singleReview.votes}
 						/>
 
-						<p aria-label="number of comments">
+						<p aria-label="number of comments" className="darkLavEmoji">
 							{singleReview.comment_count} 💬
 						</p>
 					</dd>
-					<dt>Review:</dt>
+					<dt className="listHeadings">Review:</dt>
 					<dd className="justified">{singleReview.review_body}</dd>
+					<Comments review_id={review_id} />
 				</div>
 			</section>
 		</main>

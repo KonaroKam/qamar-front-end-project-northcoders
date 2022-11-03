@@ -5,7 +5,9 @@
 }
 
 :root {
-  --darklavender:rgb( 106, 91, 110);
+  --darklavender: rgb(106, 91, 110);
+  --darklavender50opacity: rgba(106, 91, 110, .5);
+
   --lightlavender: #CCC9DC;
   --teal: #0F7173;
   --darkgreen: #001514;

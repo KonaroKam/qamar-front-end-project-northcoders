@@ -60,6 +60,7 @@
     width: 100%;
     overflow-y: scroll;
     object-fit: cover;
+    scroll-snap-align: center;
 }
 
 .absolute {
@@ -101,6 +102,8 @@ figcaption {
 figure {
     float: left;
     margin: 0;
+    scroll-snap-type: y mandatory;
+
 }
 
 .review-card__title p {
@@ -151,33 +154,28 @@ figure {
     background-color: var(--darklavender);
     overflow: scroll;
     text-align: left;
+
 }
 
-.single-review-card h2 {
+/* .single-review-card h2 {
     text-align: center;
-}
+} */
 
 .single-review-card h3 {
     padding: 1rem;
 }
 
-.single-review-card dl {
-    padding: 1rem 1rem 1rem 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    column-gap: 3rem;
-    width: 90vw;
-    justify-content: center;
+.review__info {
     gap: 0.5rem;
-    border: 3px solid var(--lightlavender);
-    border-radius: 10px 10px 0 0;
-
+    padding: 1rem 1rem 1rem 1rem;
+    width: 100%;
 }
 
-.single-review-card dt {
+.listHeadings {
     font-size: 1.3rem;
     font-weight: 700;
+    text-align: left;
+    padding: 1rem 0 1rem 0;
 }
 
 .single-review-card dd {
@@ -187,14 +185,12 @@ figure {
     gap: 2rem;
 }
 
-.review-body dd {
-    padding-bottom: 20px;
-}
+
 
 .review-body {
-    width: 90%;
+    width: 100%;
     height: fit-content;
-
+    font-size: larger;
     text-align: justify;
     background-color: var(--lightlavender);
     color: black;
@@ -202,9 +198,19 @@ figure {
 }
 
 .info {
+    /* justify-self: center; */
     margin-top: 10px;
     height: min-content;
-    max-height: 100vh;
+    /* max-height: 100vh; */
+    padding-bottom:  2rem;
+    display: flex;
+    flex-direction: column;
+    column-gap: 3rem;
+    justify-content: left;
+    width: 80vw;
+    gap: 0.5rem;
+    border: 3px 3px 0px 3px solid var(--lightlavender);
+    border-radius: 10px 10px 0 0;
 }
 
 .likeButton {
@@ -220,3 +226,25 @@ figure {
     max-width: 5rem;
     text-align: left;
 }
+
+.comments {
+    width: 100%;
+    height: 10;
+    padding: 0px;
+}
+
+.individual__comment {
+    border-top: 3px solid var(--darklavender50opacity);
+    padding-top: 1rem;
+    margin-top: 5px;
+    font-size: medium;
+}
+
+.comment-details {
+    padding: 1rem 0 1rem 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items:baseline;
+justify-content: space-between;
+row-gap: 0.5rem;}

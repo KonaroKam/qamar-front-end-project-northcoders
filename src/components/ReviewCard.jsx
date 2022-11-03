@@ -32,7 +32,7 @@ export default function ReviewCard({ review }) {
 				</div>
 				<div className="interactions">
 					<Votes review_id={review_id} votes={votes} />
-					<p aria-label="number of comments">{comment_count} 💬</p>
+					<p aria-label="number of comments" className="darkLavEmoji">{comment_count} 💬</p>
 					<p className="footer">
 						{new Date(created_at.replace(" ", "T")).toUTCString()}
 					</p>

@@ -11,7 +11,7 @@ export default function Votes({ review_id, votes }) {
 			{votedStatus ? (
 				<span className="likedEmoji">{votes + 1} 💚 </span>
 			) : (
-				<span className="notLikedEmoji">{votes} 💚</span>
+				<span className="darkLavEmoji">{votes} 💚</span>
 			)}
 		</button>
 	);
