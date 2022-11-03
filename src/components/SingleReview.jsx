@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewByID } from "../GamesAPI";
 import Loading from "./persistent/Loading";
+import Votes from "./Votes";
 
 export default function SingleReview() {
 	const { review_id } = useParams();
@@ -21,7 +22,6 @@ export default function SingleReview() {
 			setLoading(false);
 		});
 	}, [review_id]);
-
 
 	if (isLoading) return <Loading />;
 	return (
@@ -50,7 +50,8 @@ export default function SingleReview() {
 				<dl>
 					<dt>Review #{review_id}</dt>
 					<dd>
-						Review of {singleReview.category} game / Designed by {singleReview.designer}
+						Review of {singleReview.category} game / Designed by{" "}
+						{singleReview.designer}
 					</dd>
 					<dd>
 						By {singleReview.owner} / On{" "}
@@ -58,17 +59,18 @@ export default function SingleReview() {
 							singleReview.created_at.replace(" ", "T")
 						).toUTCString()}
 					</dd>
-
-					<dd>
-						<p aria-label="number of likes">
-							{singleReview.votes} 💚
-						</p>
-						<p aria-label="number of comments">
-							{singleReview.comment_count} 💬{" "}
-						</p>
-					</dd>
 				</dl>
 				<div className="review-body">
+					<dd>
+						<Votes
+							review_id={review_id}
+							votes={singleReview.votes}
+						/>
+
+						<p aria-label="number of comments">
+							{singleReview.comment_count} 💬
+						</p>
+					</dd>
 					<dt>Review:</dt>
 					<dd className="justified">{singleReview.review_body}</dd>
 				</div>

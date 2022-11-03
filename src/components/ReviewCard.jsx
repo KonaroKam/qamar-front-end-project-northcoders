@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Votes from "./Votes";
 
 export default function ReviewCard({ review }) {
 	const {
@@ -10,6 +11,7 @@ export default function ReviewCard({ review }) {
 		comment_count,
 		votes,
 	} = review;
+
 
 	return (
 		<li className="review-card ">
@@ -29,7 +31,7 @@ export default function ReviewCard({ review }) {
 					<p className="review-card__body">{review_body}</p>
 				</div>
 				<div className="interactions">
-					<p aria-label="number of likes">{votes} 💚</p>
+					<Votes review_id={review_id} votes={votes} />
 					<p aria-label="number of comments">{comment_count} 💬</p>
 					<p className="footer">
 						{new Date(created_at.replace(" ", "T")).toUTCString()}

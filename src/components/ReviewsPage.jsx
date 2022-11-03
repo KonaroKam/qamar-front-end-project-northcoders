@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import Loading from "./persistent/Loading";
 
 export default function ReviewsPage({ tag }) {
-	const [reviews, setReviews] = useState([{}]);
+	const [reviews, setReviews] = useState(null);
 	const [isLoading, setLoading] = useState(true);
 	const { category } = useParams();
 
