@@ -30,15 +30,25 @@ export function getCommentsByReviewID(ID) {
 	return api.get(`/reviews/${ID}/comments`).then(({ data }) => {
 		return data.comments;
 	});
-
 }
 
 // ALL OTHER REQUESTS
 
 export function patchReviewVotes(ID, votedStatus) {
 	return api
-		.patch(`/reviews/${ID}`, votedStatus ? { inc_votes: -1 } : { inc_votes: 1 })
+		.patch(
+			`/reviews/${ID}`,
+			votedStatus ? { inc_votes: -1 } : { inc_votes: 1 }
+		)
 		.then(({ data }) => {
 			return data.updatedReview;
+		});
+}
+
+export function addCommentToReview({ review_id, username, body }) {
+	return api
+		.post(`/reviews/${review_id}/comments`, { username, body })
+		.then(({ data }) => {
+			return data;
 		});
 }

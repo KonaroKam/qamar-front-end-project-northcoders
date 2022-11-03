@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCommentsByReviewID } from "../GamesAPI";
+import AddComment from "./AddComment";
 import Loading from "./persistent/Loading";
 
 export default function Comments({ review_id }) {
@@ -19,9 +20,10 @@ export default function Comments({ review_id }) {
 	return (
 		<section className="comments">
 			<h2 className="listHeadings">Comments:</h2>
+			<AddComment review_id={review_id}/>
 			{comments.map((comment) => {
 				return (
-					<dl className="individual__comment">
+					<dl className="individual__comment" key={comment.comment_id}>
 						<dd>{comment.body}</dd>
 						<div className="comment-details">
 						<dd className="darkLavEmoji">{comment.votes} 💚</dd>
