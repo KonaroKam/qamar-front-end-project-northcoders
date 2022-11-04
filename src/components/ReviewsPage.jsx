@@ -31,15 +31,13 @@ export default function ReviewsPage({ tag }) {
 				setError(null);
 			})
 			.catch((err) => {
-				console.log('err IN REVIEWS: ', err);
-				setError(err);
 				setLoading(false);
+				setError(err);
 			});
 	}, [searchParams]);
 
 	if (isLoading) return <Loading />;
 	if (error) return <ErrorHandler error={error} />;
-
 	return (
 		<main>
 			<div className="tealBG">

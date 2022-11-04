@@ -28,8 +28,8 @@ export default function SingleReview() {
 				setError(null);
 			})
 			.catch((err) => {
-				setError(err);
 				setLoading(false);
+				setError(err);
 			});
 	}, [review_id]);
 

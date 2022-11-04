@@ -14,13 +14,10 @@ export function getUsers() {
 
 export function getReviews(sort_by, order, category) {
 	return api
-		.get(`/review`, { params: { category, sort_by, order } })
+		.get(`/reviews`, { params: { category, sort_by, order } })
 		.then(({ data }) => {
 			console.log('data: ', data);
 			return data.reviews;
-		}).catch((err)=>{
-			console.log('err API: ', err);
-			return err
 		})
 }
 export function getReviewByID(ID) {
