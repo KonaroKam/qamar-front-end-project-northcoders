@@ -48,7 +48,7 @@ export default function AddComment({ review_id }) {
 			) : (
                 <dl className="individual__comment newComment">
                     <dt className="listHeadings">What cool thoughts you have! See your comment below:</dt>
-					<dd>{newComment.body}</dd>
+					<dd >{newComment.body}</dd>
 					<div className="comment-details">
 						<dt>By {newComment.author}</dt>
 						<dd className="footer">

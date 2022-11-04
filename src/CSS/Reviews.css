@@ -189,6 +189,14 @@ figure {
     flex-direction: row;
     flex-wrap: wrap;
     column-gap: 2rem;
+    width: inherit;
+    min-height: fit-content;
+max-width: 100%;
+    overflow-wrap: break-word; 
+    word-wrap: break-word;
+    hyphens:auto;
+/* height: fit-content; */
+
 }
 
 

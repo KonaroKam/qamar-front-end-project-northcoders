@@ -55,3 +55,13 @@ export function addCommentToReview({ review_id, username, body }) {
 			return data;
 		});
 }
+
+export function deleteCommentById(ID) {
+	return api
+		.delete(
+			`/comments/${ID}`)
+		.then(({ data }) => {
+			console.log('data: ', data);
+			return data;
+		});
+}
