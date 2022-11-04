@@ -5,35 +5,46 @@ import FilterBar from "./FilterBar";
 import ReviewsNavBar from "./ReviewsNavBar";
 
 import { getReviews } from "../GamesAPI";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Loading from "./persistent/Loading";
 
 export default function ReviewsPage({ tag }) {
+	const [searchParams, setSearchParams] = useSearchParams();
+
 	const [reviews, setReviews] = useState(null);
+
 	const [isLoading, setLoading] = useState(true);
-	const { category } = useParams();
 
 	useEffect(() => {
 		setLoading(true);
-		getReviews(category).then((response) => {
+		getReviews(
+			searchParams.get("sort_by"),
+			searchParams.get("order"),
+			searchParams.get("category")
+		).then((response) => {
 			setReviews(response);
 			setLoading(false);
 		});
-	}, [category]);
+	}, [searchParams]);
 
 	if (isLoading) return <Loading />;
 	return (
 		<main>
 			<div className="tealBG">
-				<ReviewsNavBar />
+				<ReviewsNavBar
+					searchParams={searchParams}
+					setSearchParams={setSearchParams}
+				/>
 			</div>
 
-			<h2 className="title">
-				{tag} {category ? `${category} game reviews` : ""}
+			<h2 className="title">{searchParams.get("category") ? `${searchParams.get("category") } game reviews` : "All game reviews"}
 			</h2>
 
 			<section>
-				<FilterBar />
+				<FilterBar
+					searchParams={searchParams}
+					setSearchParams={setSearchParams}
+				/>
 				<ul className="review-list">
 					{reviews.map((review) => {
 						return (

@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { getCategories } from "../GamesAPI";
 import Loading from "./persistent/Loading";
 
-export default function ReviewsNavBar() {
+export default function ReviewsNavBar({ setSearchParams , searchParams}) {
 	const [isLoading, setLoading] = useState(true);
 	const [isClosed, setIsClosed] = useState(true);
 	const [availableCategories, setAvailableCategories] = useState(null);
 
 	const handleClick = () => {
 		setIsClosed(!isClosed);
+	};
+	const handleCategoryChange = (event) => {
+		searchParams.set("category", event.target.value);
+		setSearchParams(searchParams);
+	};
+
+	const handleCategoryRemove = () => {
+		 searchParams.delete('category')
+		setSearchParams(searchParams);
 	};
 
 	useEffect(() => {
@@ -31,16 +39,18 @@ export default function ReviewsNavBar() {
 		<nav className="menuBar">
 			<button onClick={handleClick}>Close</button>
 			<div className="linkOptions">
-				<Link to="/">All reviews</Link>
-
+				<button onClick={handleCategoryRemove}>
+					All Reviews
+				</button>
 				{availableCategories.map((category) => {
 					return (
-						<Link
-							to={`/category/${category.slug}`}
+						<button
 							key={category.slug}
+							onClick={handleCategoryChange}
+							value={category.slug}
 						>
 							{category.slug.replaceAll("-", " ")}
-						</Link>
+						</button>
 					);
 				})}
 			</div>

@@ -21,26 +21,18 @@ function App() {
 			<div className="App">
 				<Header />
 				{userName ? (
-					<Routes>
-						<Route
-							path="/"
-							element={<ReviewsPage tag="All game reviews" />}
-						/>
-						<Route
-							path="/category/:category"
-							element={<ReviewsPage tag="Only " />}
-						/>
-						<Route
-							path="/reviews/:review_id"
-							element={<SingleReview />}
-						/>
-					</Routes>
+			<Routes>
+			<Route
+				path="/"
+				element={<ReviewsPage/>}
+			/>
+			<Route path="/reviews/:review_id" element={<SingleReview />} />
+		</Routes>
 				) : (
 					<Login />
 				)}
 			</div>
 		</UserContext.Provider>
-	);
 }
 
 export default App;
