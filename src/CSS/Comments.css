@@ -30,6 +30,15 @@
     max-width: 100%;
 }
 
+.deleteButton {
+    min-width: 100px;
+    max-width: 10%;
+}
+
+.deleteButton:hover {
+    color: red;
+}
+
 #newCommentBox {
     padding: 1rem;
     min-width: 100%;
@@ -56,3 +65,4 @@
 .newComment .footer {
     display: block;
 }
+

@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../Contexts/UserContext";
 import { addCommentToReview } from "../GamesAPI";
 
 export default function AddComment({ review_id }) {
 	const [newComment, setNewComment] = useState(null);
 	const [hasSubmit, setHasSubmit] = useState(false);
 
+	const { userName } = useContext(UserContext);
+
+
 	const [formParameters, setFormParameters] = useState({
-		username: "happyamy2016",
+		username: userName,
 		body: null,
 		review_id,
 	});
@@ -44,7 +48,7 @@ export default function AddComment({ review_id }) {
 			) : (
                 <dl className="individual__comment newComment">
                     <dt className="listHeadings">What cool thoughts you have! See your comment below:</dt>
-					<dd>{newComment.body}</dd>
+					<dd >{newComment.body}</dd>
 					<div className="comment-details">
 						<dt>By {newComment.author}</dt>
 						<dd className="footer">

@@ -6,6 +6,12 @@ const api = axios.create({
 
 // ALL GET REQUESTS
 
+export function getUsers() {
+	return api.get(`/users`).then(({ data }) => {
+		return data.users;
+	});
+}
+
 export function getReviews(sort_by, order,category) {
 	return api.get(`/reviews`, {params: {category , sort_by, order}}).then(({ data }) => {
 		return data.reviews;
@@ -46,6 +52,16 @@ export function addCommentToReview({ review_id, username, body }) {
 	return api
 		.post(`/reviews/${review_id}/comments`, { username, body })
 		.then(({ data }) => {
+			return data;
+		});
+}
+
+export function deleteCommentById(ID) {
+	return api
+		.delete(
+			`/comments/${ID}`)
+		.then(({ data }) => {
+			console.log('data: ', data);
 			return data;
 		});
 }

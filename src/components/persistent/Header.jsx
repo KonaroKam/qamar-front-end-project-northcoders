@@ -1,8 +1,12 @@
 import logo from "./d20Logo.png";
 
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../Contexts/UserContext";
 
 export default function Header() {
+	const { userName } = useContext(UserContext);
+	
 	return (
 		<header>
 			<Link to="/" className="qame-reviews">
@@ -12,8 +16,9 @@ export default function Header() {
 						<img className="logo" alt="A 20 faced die" src={logo} />
 					</h1>
 					<p>Nat20 intelligence reviews only</p>
-				</div>{" "}
+				</div>
 			</Link>
+			<h4 className="title">Currently signed in as: {userName}</h4>
 		</header>
 	);
 }
