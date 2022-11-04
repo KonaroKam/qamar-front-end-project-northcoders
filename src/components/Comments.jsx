@@ -44,7 +44,7 @@ export default function Comments({ review_id }) {
 									deletedComment.includes(
 										comment.comment_id
 									) ? (
-										<h3>DELETED!!!</h3>
+										<h3>DELETED!!! Refresh to update</h3>
 									) : (
 										<h3>DELETING...</h3>
 									)

@@ -42,6 +42,7 @@ export default function AddComment({ review_id }) {
 						id="newCommentBox"
 						type="text"
 						placeholder="Type here..."
+						required
 					></textarea>
 					<button className="formButton">SUBMIT</button>
 				</form>

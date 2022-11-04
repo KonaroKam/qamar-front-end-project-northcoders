@@ -6,20 +6,21 @@ export default function UserCard({ user }) {
 	const { username, name, avatar_url } = user;
 
 	return (
-		<li className="user-card">
-			<section className="user-info"><button
-				onClick={() => {
-					setUserName(user.username);
-				}}
-			>
-				select
-			</button>
-				{" "}
+		<div className="user-card" onClick={() => {
+						setUserName(user.username);
+					}}>
+				{/* <button
+				className="user-button"
+					
+				>
+					select
+				</button> */}
+				<img className="user-img" src={avatar_url} aria-label={username} />
+			<section className="user-info">
 				<h3 className="">{username}</h3>
 				<p className="review-card__body">{name}</p>
 			</section>
-			
-			<img className="user-img" src={avatar_url} aria-label={username} />
-		</li>
+
+		</div>
 	);
 }

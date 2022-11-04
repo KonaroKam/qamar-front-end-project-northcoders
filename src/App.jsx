@@ -21,17 +21,18 @@ function App() {
 		<UserContext.Provider value={{ userName, setUserName }}>
 			<div className="App">
 				<Header />
+				{!userName ? <Login /> : 
 				<Routes>
 					<Route
 						path="/"
-						element={!userName ? <Login /> : <ReviewsPage />}
+						element={<ReviewsPage />}
 					/>
 					<Route
 						path="/reviews/:review_id"
 						element={<SingleReview />}
 					/>
 					<Route path="/*" element={<ErrorHandler />} />
-				</Routes>
+				</Routes>}
 			</div>
 		</UserContext.Provider>
 	);
