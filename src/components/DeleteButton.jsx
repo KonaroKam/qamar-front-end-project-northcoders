@@ -2,14 +2,18 @@ import { deleteCommentById } from "../GamesAPI";
 
 export default function DeleteButton({
 	comment_id,
-	deletedComment,
+
 	setDeletedComment,
+	setDeletingComment,
 }) {
 	const handleDelete = () => {
-		setDeletedComment((current) => {
+		setDeletingComment((current) => {
 			return [...current, comment_id];
 		});
 		deleteCommentById(comment_id).then((response) => {
+            setDeletedComment((current) => {
+                return [...current, comment_id];
+            });
 			console.log("response: ", response);
 		});
 	};

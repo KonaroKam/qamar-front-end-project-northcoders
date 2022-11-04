@@ -11,10 +11,13 @@ export default function Comments({ review_id }) {
 	const [isLoading, setLoading] = useState(true);
 
 	const [comments, setComments] = useState(null);
+	const [deletingComment, setDeletingComment] = useState([]);
 	const [deletedComment, setDeletedComment] = useState([]);
+
 
 	useEffect(() => {
 		setLoading(true);
+		setDeletingComment([]);
 		setDeletedComment([]);
 		getCommentsByReviewID(review_id).then((response) => {
 			setComments(response);
@@ -38,16 +41,19 @@ export default function Comments({ review_id }) {
 							<dd className="darkLavEmoji">{comment.votes} 💚</dd>
 							<dt>By {comment.author}</dt>
 							{comment.author === userName ? (
-								deletedComment.includes(comment.comment_id) ? (
+								deletingComment.includes(comment.comment_id) ? (
+									deletedComment.includes(comment.comment_id) ? <h3>
+									DELETED!!!
+								</h3>:
 									<h3>
-										DELETED... Refresh to only see current
-										comments
+										DELETING...
 									</h3>
 								) : (
 									<DeleteButton
-										deletedComment={deletedComment}
+			
 										setDeletedComment={setDeletedComment}
 										comment_id={comment.comment_id}
+										setDeletingComment={setDeletingComment}
 									/>
 								)
 							) : (
