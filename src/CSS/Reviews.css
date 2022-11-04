@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2vh
+    gap: 2vh;
+    padding-top: 1rem;
 }
 
 .review-card {

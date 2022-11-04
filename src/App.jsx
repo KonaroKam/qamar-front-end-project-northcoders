@@ -11,17 +11,14 @@ import ReviewsPage from "./components/ReviewsPage";
 import SingleReview from "./components/SingleReview";
 
 function App() {
+	
 	return (
 		<div className="App">
 			<Header />
 			<Routes>
 				<Route
 					path="/"
-					element={<ReviewsPage tag="All game reviews" />}
-				/>
-				<Route
-					path="/category/:category"
-					element={<ReviewsPage tag="Only " />}
+					element={<ReviewsPage/>}
 				/>
 				<Route path="/reviews/:review_id" element={<SingleReview />} />
 			</Routes>

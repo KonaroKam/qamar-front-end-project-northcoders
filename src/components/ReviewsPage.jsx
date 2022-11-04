@@ -5,45 +5,46 @@ import FilterBar from "./FilterBar";
 import ReviewsNavBar from "./ReviewsNavBar";
 
 import { getReviews } from "../GamesAPI";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Loading from "./persistent/Loading";
 
 export default function ReviewsPage({ tag }) {
-	let [searchParams, setSearchParams] = useSearchParams();
-	console.log('searchParams: ', searchParams);
+	const [searchParams, setSearchParams] = useSearchParams();
 
-const { category, sort, order } = useParams();
-console.log('RPAGE category, sort, order: ', category, sort, order);
 	const [reviews, setReviews] = useState(null);
-	const [parameters, setParameters] = useState({
-		sort: "review_id",
-		order: "asc",
-	});
 
 	const [isLoading, setLoading] = useState(true);
-	
 
 	useEffect(() => {
 		setLoading(true);
-		getReviews(category, sort, order).then((response) => {
+		getReviews(
+			searchParams.get("sort_by"),
+			searchParams.get("order"),
+			searchParams.get("category")
+		).then((response) => {
 			setReviews(response);
 			setLoading(false);
 		});
-	}, [category, sort, order]);
+	}, [searchParams]);
 
 	if (isLoading) return <Loading />;
 	return (
 		<main>
 			<div className="tealBG">
-				<ReviewsNavBar />
+				<ReviewsNavBar
+					searchParams={searchParams}
+					setSearchParams={setSearchParams}
+				/>
 			</div>
 
-			<h2 className="title">
-				{tag} {category ? `${category} game reviews` : ""}
+			<h2 className="title">{searchParams.get("category") ? `${searchParams.get("category") } game reviews` : "All game reviews"}
 			</h2>
 
 			<section>
-				<FilterBar setParameters={setParameters} parameters={parameters}/>
+				<FilterBar
+					searchParams={searchParams}
+					setSearchParams={setSearchParams}
+				/>
 				<ul className="review-list">
 					{reviews.map((review) => {
 						return (

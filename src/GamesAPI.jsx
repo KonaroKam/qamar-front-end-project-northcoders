@@ -6,11 +6,8 @@ const api = axios.create({
 
 // ALL GET REQUESTS
 
-export function getReviews(category, sort, order) {
-	let path = `/reviews`;
-
-	return api.get(path, {params: {category, sort, order}}).then(({ data }) => {
-		console.log('category, sort, order: ', category, sort, order);
+export function getReviews(sort_by, order,category) {
+	return api.get(`/reviews`, {params: {category , sort_by, order}}).then(({ data }) => {
 		return data.reviews;
 	});
 }

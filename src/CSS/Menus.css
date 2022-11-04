@@ -1,11 +1,10 @@
 nav,
 .menuBar {
     background-color: var(--teal);
-    border-radius: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
+
     align-items: center;
     justify-content: space-around;
     padding: 10px;
@@ -19,6 +18,48 @@ nav,
     justify-content: center;
 }
 
+.filterBar {
+    background-color: var(--teal);
+    /* border: 3px solid var(--darklavender); */
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    display: flex;
+    flex: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filterFields {}
+
+fieldset {
+    color: ghostwhite;
+    /* background-color: var(--darklavender);
+    */
+    border: none; 
+    /* border-radius: 5px; */
+    display: flex;
+    flex: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 230px;
+    text-transform: capitalize;
+}
+
+select {
+    color: ghostwhite;
+    background-color: var(--darklavender);
+    border: solid 2px var(--lightlavender);
+    border-radius: 5px;
+    padding: 10px;
+    /* min-width:200px; */
+    width: 65%;
+    max-width: 200px;
+    text-transform: capitalize;
+}
+
 button,
 .menuBar a {
     color: ghostwhite;
@@ -26,8 +67,8 @@ button,
     border: solid 2px var(--lightlavender);
     border-radius: 5px;
     padding: 10px;
-    width: 200px;
-    max-width: 50%;
+    width: 50%;
+    max-width: 200px;
     text-transform: capitalize;
 
 }
