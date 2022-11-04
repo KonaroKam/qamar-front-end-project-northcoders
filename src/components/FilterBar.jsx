@@ -14,7 +14,7 @@ export default function FilterBar({ searchParams, setSearchParams }) {
 					onChange={(event) => {
 						handleChange("sort_by", event.target.value);
 					}}
-					value={searchParams.get("sort_by")}
+					defaultValue={searchParams.get("sort_by")}
 				>
 					<option value="created_at">Date added</option>
 					<option value="comment_count">Comments</option>
@@ -31,7 +31,7 @@ export default function FilterBar({ searchParams, setSearchParams }) {
 					onChange={(event) => {
 						handleChange("order", event.target.value);
 					}}
-					value={searchParams.get("order")}
+					defaultValue={searchParams.get("order")}
 				>
 					<option value="desc">Descending</option>
 					<option value="asc">Ascending</option>

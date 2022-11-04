@@ -3,6 +3,7 @@ import "./CSS/reusable.css";
 import "./CSS/Reviews.css";
 import "./CSS/Menus.css";
 import "./CSS/Comments.css";
+import "./CSS/Users.css"
 
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
@@ -15,24 +16,26 @@ import SingleReview from "./components/SingleReview";
 
 function App() {
 	const [userName, setUserName] = useState();
+	console.log('userName: ', userName);
 
 	return (
 		<UserContext.Provider value={{ userName, setUserName }}>
 			<div className="App">
 				<Header />
-				{userName ? (
-			<Routes>
-			<Route
-				path="/"
-				element={<ReviewsPage/>}
-			/>
-			<Route path="/reviews/:review_id" element={<SingleReview />} />
-		</Routes>
-				) : (
+				{!userName ? (
 					<Login />
+				) : (
+					<Routes>
+						<Route path="/" element={<ReviewsPage />} />
+						<Route
+							path="/reviews/:review_id"
+							element={<SingleReview />}
+						/>
+					</Routes>
 				)}
 			</div>
 		</UserContext.Provider>
+	);
 }
 
 export default App;

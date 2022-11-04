@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../Contexts/UserContext";
 import { addCommentToReview } from "../GamesAPI";
 
 export default function AddComment({ review_id }) {
 	const [newComment, setNewComment] = useState(null);
 	const [hasSubmit, setHasSubmit] = useState(false);
 
+	const { userName } = useContext(UserContext);
+
+
 	const [formParameters, setFormParameters] = useState({
-		username: "happyamy2016",
+		username: userName,
 		body: null,
 		review_id,
 	});

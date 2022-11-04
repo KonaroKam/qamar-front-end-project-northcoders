@@ -6,6 +6,12 @@ const api = axios.create({
 
 // ALL GET REQUESTS
 
+export function getUsers() {
+	return api.get(`/users`).then(({ data }) => {
+		return data.users;
+	});
+}
+
 export function getReviews(sort_by, order,category) {
 	return api.get(`/reviews`, {params: {category , sort_by, order}}).then(({ data }) => {
 		return data.reviews;
