@@ -11,11 +11,11 @@ export default function Comments({ review_id }) {
 	const [isLoading, setLoading] = useState(true);
 
 	const [comments, setComments] = useState(null);
-	const [deletedComment, setDeletedComment] = useState(null);
+	const [deletedComment, setDeletedComment] = useState([]);
 
 	useEffect(() => {
 		setLoading(true);
-		setDeletedComment(null);
+		setDeletedComment([]);
 		getCommentsByReviewID(review_id).then((response) => {
 			setComments(response);
 			setLoading(false);
@@ -38,7 +38,7 @@ export default function Comments({ review_id }) {
 							<dd className="darkLavEmoji">{comment.votes} 💚</dd>
 							<dt>By {comment.author}</dt>
 							{comment.author === userName ? (
-								deletedComment === comment.comment_id ? (
+								deletedComment.includes(comment.comment_id) ? (
 									<h3>
 										DELETED... Refresh to only see current
 										comments
