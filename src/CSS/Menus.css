@@ -20,7 +20,6 @@ nav,
 
 .filterBar {
     background-color: var(--teal);
-    /* border: 3px solid var(--darklavender); */
     align-items: center;
     justify-content: center;
     padding: 10px;
@@ -30,14 +29,9 @@ nav,
     gap: 1rem;
 }
 
-.filterFields {}
-
 fieldset {
     color: ghostwhite;
-    /* background-color: var(--darklavender);
-    */
     border: none; 
-    /* border-radius: 5px; */
     display: flex;
     flex: row;
     flex-wrap: wrap;
@@ -54,7 +48,6 @@ select {
     border: solid 2px var(--lightlavender);
     border-radius: 5px;
     padding: 10px;
-    /* min-width:200px; */
     width: 65%;
     max-width: 200px;
     text-transform: capitalize;

@@ -6,7 +6,7 @@ export default function FilterBar({ searchParams, setSearchParams }) {
 
 	return (
 		<form className="filterBar flex-row">
-			<fieldset className="filterFields">
+			<fieldset >
 				<label htmlFor="sort_by">Sorted by</label>
 				<select
 					id="sort_by"
