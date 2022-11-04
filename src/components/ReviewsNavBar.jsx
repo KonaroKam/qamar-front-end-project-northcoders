@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { getCategories } from "../GamesAPI";
+import ErrorHandler from "./persistent/ErrorHandler";
 import Loading from "./persistent/Loading";
 
-export default function ReviewsNavBar({ setSearchParams , searchParams}) {
+export default function ReviewsNavBar({ setSearchParams, searchParams }) {
 	const [isLoading, setLoading] = useState(true);
+	const [error, setError] = useState(true);
+
 	const [isClosed, setIsClosed] = useState(true);
 	const [availableCategories, setAvailableCategories] = useState(null);
 
@@ -16,19 +19,26 @@ export default function ReviewsNavBar({ setSearchParams , searchParams}) {
 	};
 
 	const handleCategoryRemove = () => {
-		 searchParams.delete('category')
+		searchParams.delete("category");
 		setSearchParams(searchParams);
 	};
 
 	useEffect(() => {
 		setLoading(true);
-		getCategories().then((response) => {
-			setAvailableCategories(response);
-			setLoading(false);
-		});
+		getCategories()
+			.then((response) => {
+				setAvailableCategories(response);
+				setLoading(false);
+				setError(null);
+			})
+			.catch((err) => {
+				setError(err);
+				setLoading(false);
+			});
 	}, []);
 
 	if (isLoading) return <Loading />;
+	if (error) return <ErrorHandler error={error} />;
 	if (isClosed)
 		return (
 			<nav className="menuBar">
@@ -39,9 +49,7 @@ export default function ReviewsNavBar({ setSearchParams , searchParams}) {
 		<nav className="menuBar">
 			<button onClick={handleClick}>Close</button>
 			<div className="linkOptions">
-				<button onClick={handleCategoryRemove}>
-					All Reviews
-				</button>
+				<button onClick={handleCategoryRemove}>All Reviews</button>
 				{availableCategories.map((category) => {
 					return (
 						<button

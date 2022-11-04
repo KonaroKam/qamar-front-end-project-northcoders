@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewByID } from "../GamesAPI";
 import Comments from "./Comments";
+import ErrorHandler from "./persistent/ErrorHandler";
+
 import Loading from "./persistent/Loading";
 import Votes from "./Votes";
 
 export default function SingleReview() {
 	const { review_id } = useParams();
 	const [isLoading, setLoading] = useState(true);
+	const [error, setError] = useState(true);
 	const [isAbsolute, setIsAbsolute] = useState(false);
 
 	const [singleReview, setSingleReview] = useState(null);
@@ -18,13 +21,20 @@ export default function SingleReview() {
 
 	useEffect(() => {
 		setLoading(true);
-		getReviewByID(review_id).then((response) => {
-			setSingleReview(response);
-			setLoading(false);
-		});
+		getReviewByID(review_id)
+			.then((response) => {
+				setSingleReview(response);
+				setLoading(false);
+				setError(null);
+			})
+			.catch((err) => {
+				setError(err);
+				setLoading(false);
+			});
 	}, [review_id]);
 
 	if (isLoading) return <Loading />;
+	if (error) return <ErrorHandler error={error} />;
 	return (
 		<main className="single-review-card flex-col flex-center">
 			<div className="review-card__title single">
@@ -68,7 +78,10 @@ export default function SingleReview() {
 							votes={singleReview.votes}
 						/>
 
-						<p aria-label="number of comments" className="darkLavEmoji">
+						<p
+							aria-label="number of comments"
+							className="darkLavEmoji"
+						>
 							{singleReview.comment_count} 💬
 						</p>
 					</dd>

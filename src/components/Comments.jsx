@@ -14,7 +14,6 @@ export default function Comments({ review_id }) {
 	const [deletingComment, setDeletingComment] = useState([]);
 	const [deletedComment, setDeletedComment] = useState([]);
 
-
 	useEffect(() => {
 		setLoading(true);
 		setDeletingComment([]);
@@ -42,15 +41,15 @@ export default function Comments({ review_id }) {
 							<dt>By {comment.author}</dt>
 							{comment.author === userName ? (
 								deletingComment.includes(comment.comment_id) ? (
-									deletedComment.includes(comment.comment_id) ? <h3>
-									DELETED!!!
-								</h3>:
-									<h3>
-										DELETING...
-									</h3>
+									deletedComment.includes(
+										comment.comment_id
+									) ? (
+										<h3>DELETED!!!</h3>
+									) : (
+										<h3>DELETING...</h3>
+									)
 								) : (
 									<DeleteButton
-			
 										setDeletedComment={setDeletedComment}
 										comment_id={comment.comment_id}
 										setDeletingComment={setDeletingComment}
