@@ -1,15 +1,25 @@
 .userspage{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    padding: 2rem;
+}
+.usercardsection{
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 2vh;
-    padding-top: 1rem;
+    column-gap: 2vw;
+    row-gap: 2vh;
 }
+
+
 .user-card{
     width: 20%;
-    min-width: 200px;
+    min-width: 180px;
     /* max-height: 10vh; */
     height: fit-content;
     list-style: none;
@@ -21,7 +31,7 @@
     text-align: left;
 
     display: grid;
-    grid-template: 3fr 1fr / 1fr ;
+    grid-template: 2fr 1fr / 1fr ;
     grid-template-areas: "image" "userinfo";
     justify-content: center;
 
@@ -32,7 +42,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem;;
+    padding: 0rem;;
+    row-gap: 1vh;
 
 }
 .user-button{

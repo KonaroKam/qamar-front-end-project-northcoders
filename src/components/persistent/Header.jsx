@@ -18,7 +18,7 @@ export default function Header() {
 					<p>Nat20 intelligence reviews only</p>
 				</div>
 			</Link>
-			<h4 className="title">Currently signed in as: {userName ? userName : "NO-ONE"}</h4>
+			<h4 className="title">User {userName ? userName : "NO-ONE"}</h4>
 		</header>
 	);
 }

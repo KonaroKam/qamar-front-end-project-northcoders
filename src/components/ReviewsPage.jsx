@@ -31,6 +31,7 @@ export default function ReviewsPage({ tag }) {
 				setError(null);
 			})
 			.catch((err) => {
+				console.log('err: ', err);
 				setLoading(false);
 				setError(err);
 			});

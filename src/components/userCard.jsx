@@ -17,7 +17,7 @@ export default function UserCard({ user }) {
 				</button> */}
 				<img className="user-img" src={avatar_url} aria-label={username} />
 			<section className="user-info">
-				<h3 className="">{username}</h3>
+				<h2 className="">{username}</h2>
 				<p className="review-card__body">{name}</p>
 			</section>
 
