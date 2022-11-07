@@ -16,7 +16,6 @@ export function getReviews(sort_by, order, category) {
 	return api
 		.get(`/reviews`, { params: { category, sort_by, order } })
 		.then(({ data }) => {
-			console.log('data: ', data);
 			return data.reviews;
 		})
 }
@@ -61,7 +60,6 @@ export function addCommentToReview({ review_id, username, body }) {
 
 export function deleteCommentById(ID) {
 	return api.delete(`/comments/${ID}`).then(({ data }) => {
-		console.log("data: ", data);
 		return data;
 	});
 }

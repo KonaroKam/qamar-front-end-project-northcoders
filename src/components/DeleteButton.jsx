@@ -14,7 +14,6 @@ export default function DeleteButton({
             setDeletedComment((current) => {
                 return [...current, comment_id];
             });
-			console.log("response: ", response);
 		});
 	};
 

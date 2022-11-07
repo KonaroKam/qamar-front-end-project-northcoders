@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function ErrorHandler({ error }) {
-	console.log("error HADNLER: ", error);
-
 	return (
 		<Link to="/">
 			<main className="error">

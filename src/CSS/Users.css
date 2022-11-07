@@ -18,9 +18,8 @@
 
 
 .user-card{
-    width: 20%;
+    width: fit-content;
     min-width: 180px;
-    /* max-height: 10vh; */
     height: fit-content;
     list-style: none;
     background-color: var(--darklavender);
@@ -54,12 +53,11 @@
 .user-img {
     justify-self: center;
     align-self: top;
-    
+
     background-color: white;
     grid-area: image;
     width: 190px;
     height: 190px;
-    /* max-width: 100%; */
     padding: 1rem;
     object-fit: fill;
     border: 10px solid white;

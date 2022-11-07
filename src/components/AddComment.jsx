@@ -23,14 +23,10 @@ export default function AddComment({ review_id, setReload }) {
 			});
 		}
 		setHasSubmit(false);
-		// setFormParameters((...current) => {
-		// 	return { ...current, body: null };
-		// });
 	}, [hasSubmit]);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log('event.target[0].value: ', event.target[0].value);
 		if (event.target[0].value) {
 			setNoInput(false)
 			setFormParameters((current) => {
@@ -53,8 +49,7 @@ export default function AddComment({ review_id, setReload }) {
 						id="newCommentBox"
 						type="text"
 						placeholder={noInput ? "You must comment to be able to submit" : "Type here..."}
-						// required
-					></textarea>
+						></textarea>
 					
 					<button className="formButton" disabled={hasSubmit ? true: false}>SUBMIT</button>
 				</form>
