@@ -3,6 +3,7 @@ import { UserContext } from "../Contexts/UserContext";
 import { addCommentToReview } from "../GamesAPI";
 
 export default function AddComment({ review_id, setReload }) {
+	console.log('review_id: ', review_id);
 	const [newComment, setNewComment] = useState(null);
 	const [hasSubmit, setHasSubmit] = useState(false);
 
@@ -16,7 +17,7 @@ export default function AddComment({ review_id, setReload }) {
 
 	const [noInput, setNoInput] = useState(false);
 
-	useEffect((formParameters) => {
+	useEffect(() => {
 		if (hasSubmit) {
 			addCommentToReview(formParameters).then((response) => {
 				setNewComment(response);
