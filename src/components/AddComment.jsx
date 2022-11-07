@@ -16,7 +16,7 @@ export default function AddComment({ review_id, setReload }) {
 
 	const [noInput, setNoInput] = useState(false);
 
-	useEffect(() => {
+	useEffect((formParameters) => {
 		if (hasSubmit) {
 			addCommentToReview(formParameters).then((response) => {
 				setNewComment(response);

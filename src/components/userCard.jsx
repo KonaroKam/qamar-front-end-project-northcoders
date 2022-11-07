@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { UserContext } from "../Contexts/UserContext";
 
 export default function UserCard({ user }) {
-	const { userName, setUserName } = useContext(UserContext);
+	const { setUserName } = useContext(UserContext);
 	const { username, name, avatar_url } = user;
 
 	return (

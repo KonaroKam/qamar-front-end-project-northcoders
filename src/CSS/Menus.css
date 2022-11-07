@@ -51,6 +51,7 @@ select {
     width: 65%;
     max-width: 200px;
     text-transform: capitalize;
+    cursor: pointer;
 }
 
 button,
@@ -63,5 +64,5 @@ button,
     width: 50%;
     max-width: 200px;
     text-transform: capitalize;
-
+cursor: pointer;
 }

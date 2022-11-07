@@ -40,7 +40,7 @@ export default function SingleReview() {
 			<div className="review-card__title single">
 				<figure
 					className={
-						isAbsolute ? "absolute single__img " : " single__img"
+						isAbsolute ? "absolute single__img single-review-figure" : " single__img single-review-figure"
 					}
 				>
 					<figcaption>
