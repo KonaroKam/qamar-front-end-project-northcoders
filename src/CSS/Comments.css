@@ -19,6 +19,7 @@
     align-items: baseline;
     justify-content: space-between;
     row-gap: 0.5rem;
+    font-size: large;
 }
 
 .commentForm {
@@ -64,5 +65,16 @@
 
 .newComment .footer {
     display: block;
+}
+
+.border{    border-top: 3px solid var(--lightlavender);
+    padding-top: 1rem;
+    margin-top: 5px;
+    display: block;
+    /* justify-content: center; */
+    text-align: center;
+    /* font-size: medium; */
+
+
 }
 

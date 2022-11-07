@@ -13,23 +13,24 @@ export default function Comments({ review_id }) {
 	const [comments, setComments] = useState(null);
 	const [deletingComment, setDeletingComment] = useState([]);
 	const [deletedComment, setDeletedComment] = useState([]);
-
+	const [reload, setReload] = useState(false);
 
 	useEffect(() => {
 		setLoading(true);
+		setReload(false);
 		setDeletingComment([]);
 		setDeletedComment([]);
 		getCommentsByReviewID(review_id).then((response) => {
 			setComments(response);
 			setLoading(false);
 		});
-	}, [review_id]);
+	}, [review_id, reload]);
 
 	if (isLoading) return <Loading />;
 	return (
 		<section className="comments">
 			<h2 className="listHeadings">Comments:</h2>
-			<AddComment review_id={review_id} />
+			<AddComment review_id={review_id} setReload={setReload}/>
 			{comments.map((comment) => {
 				return (
 					<dl
@@ -42,15 +43,22 @@ export default function Comments({ review_id }) {
 							<dt>By {comment.author}</dt>
 							{comment.author === userName ? (
 								deletingComment.includes(comment.comment_id) ? (
-									deletedComment.includes(comment.comment_id) ? <h3>
-									DELETED!!!
-								</h3>:
-									<h3>
-										DELETING...
-									</h3>
+									deletedComment.includes(
+										comment.comment_id
+									) ? (
+										<h3
+											onClick={() => {
+												setReload(true);
+											}}
+										>
+											DELETED!!! Click to refresh
+											comments
+										</h3>
+									) : (
+										<h3>DELETING...</h3>
+									)
 								) : (
 									<DeleteButton
-			
 										setDeletedComment={setDeletedComment}
 										comment_id={comment.comment_id}
 										setDeletingComment={setDeletingComment}

@@ -2,12 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../Contexts/UserContext";
 import { addCommentToReview } from "../GamesAPI";
 
-export default function AddComment({ review_id }) {
+export default function AddComment({ review_id, setReload }) {
 	const [newComment, setNewComment] = useState(null);
 	const [hasSubmit, setHasSubmit] = useState(false);
 
 	const { userName } = useContext(UserContext);
-
 
 	const [formParameters, setFormParameters] = useState({
 		username: userName,
@@ -15,20 +14,32 @@ export default function AddComment({ review_id }) {
 		review_id,
 	});
 
+	const [noInput, setNoInput] = useState(false);
+
 	useEffect(() => {
 		if (hasSubmit) {
 			addCommentToReview(formParameters).then((response) => {
 				setNewComment(response);
 			});
 		}
+		setHasSubmit(false);
+		// setFormParameters((...current) => {
+		// 	return { ...current, body: null };
+		// });
 	}, [hasSubmit]);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		setFormParameters((current) => {
-			return { ...current, body: event.target[0].value };
-		});
-		setHasSubmit(true);
+		console.log('event.target[0].value: ', event.target[0].value);
+		if (event.target[0].value) {
+			setNoInput(false)
+			setFormParameters((current) => {
+				setHasSubmit(true);
+				return { ...current, body: event.target[0].value };
+			});
+		} else {
+			setNoInput(true);
+		}
 	};
 
 	return (
@@ -41,14 +52,18 @@ export default function AddComment({ review_id }) {
 					<textarea
 						id="newCommentBox"
 						type="text"
-						placeholder="Type here..."
+						placeholder={noInput ? "You must comment to be able to submit" : "Type here..."}
+						// required
 					></textarea>
-					<button className="formButton">SUBMIT</button>
+					
+					<button className="formButton" disabled={hasSubmit ? true: false}>SUBMIT</button>
 				</form>
 			) : (
-                <dl className="individual__comment newComment">
-                    <dt className="listHeadings">What cool thoughts you have! See your comment below:</dt>
-					<dd >{newComment.body}</dd>
+				<dl className="individual__comment newComment">
+					<dt className="listHeadings">
+						What cool thoughts you have! See your comment below:
+					</dt>
+					<dd className="border">{newComment.body}</dd>
 					<div className="comment-details">
 						<dt>By {newComment.author}</dt>
 						<dd className="footer">
@@ -57,6 +72,13 @@ export default function AddComment({ review_id }) {
 							).toUTCString()}
 						</dd>
 					</div>
+					<p
+						onClick={() => {
+							setReload(true);
+						}}
+					>
+						Click to refresh comments
+					</p>
 				</dl>
 			)}
 		</section>

@@ -3,9 +3,7 @@ import { getUsers } from "../GamesAPI";
 import UserCard from "./userCard";
 import Loading from "./persistent/Loading";
 
-
 export default function Header() {
-
 	const [isLoading, setLoading] = useState(true);
 	const [users, setUsers] = useState();
 
@@ -23,13 +21,13 @@ export default function Header() {
 		<main className="userspage">
 			<h2>Available Users</h2>
 			<h4>
-				User verification in alpha development. Catch up with me in 1
-				solar cycle for progress updates
+				Click on your favourite to become them to enable certain features.
 			</h4>
-            <h4>Click on your fav user to become them for deleting comments, and I suppose adding them too.</h4>
-			{users.map((user) => {
-				return <UserCard user={user} key={user.username} />;
-			})}
+			<section className="usercardsection">
+				{users.map((user) => {
+					return <UserCard user={user} key={user.username} />;
+				})}
+			</section>
 		</main>
 	);
 }

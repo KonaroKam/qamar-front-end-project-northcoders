@@ -59,15 +59,15 @@
 
 .single__img {
     width: 100%;
+    max-height: 100%;
     overflow-y: scroll;
     object-fit: cover;
     scroll-snap-align: center;
-    max-height: 250px;
 }
 
 .single__img::-webkit-scrollbar {
     width: 0;
-  }
+}
 
 .absolute {
     width: fit-content;
@@ -80,7 +80,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 100px 1000px var(--darklavender);
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .absolute .single__img {
@@ -153,19 +153,21 @@ figure {
     text-overflow: "... read more";
 }
 
-
 .single-review-card {
     width: 100%;
     color: ghostwhite;
     background-color: var(--darklavender);
     overflow: scroll;
     text-align: left;
+}
 
+.single-review-card .review-card__title {
+    max-height: fit-content;
 }
 
 .single-review-card::-webkit-scrollbar {
     width: 0;
-  }
+}
 
 .single-review-card h3 {
     padding: 1rem;
@@ -191,11 +193,11 @@ figure {
     column-gap: 2rem;
     width: inherit;
     min-height: fit-content;
-max-width: 100%;
-    overflow-wrap: break-word; 
+    max-width: 100%;
+    overflow-wrap: break-word;
     word-wrap: break-word;
-    hyphens:auto;
-/* height: fit-content; */
+    hyphens: auto;
+    /* height: fit-content; */
 
 }
 
@@ -216,7 +218,7 @@ max-width: 100%;
 .info {
     margin-top: 10px;
     height: min-content;
-    padding-bottom:  2rem;
+    padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
     column-gap: 3rem;
@@ -237,4 +239,3 @@ max-width: 100%;
     max-width: 5rem;
     text-align: left;
 }
-

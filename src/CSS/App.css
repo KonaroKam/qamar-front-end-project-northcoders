@@ -80,8 +80,20 @@ body{
 
 .loading {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2vh;
+  padding: 2rem;
+}
+
+.error{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+  padding: 2rem;
 }
 
 a{
