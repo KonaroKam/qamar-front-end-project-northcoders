@@ -6,8 +6,10 @@ To the front-end follow up project after my back-end API project. that I wrote a
 
 Here are some links to my back-end repo, and the API itself:
 https://github.com/KonaroKam/Qamar-s-Back-End-Project--Northcoders
-https://qamars-b-end-proj-gamereviews.herokuapp.com/api
-As that link so explicitly shows, it is being hosted with heroku for now until the free postgres addon is no longer available as of 28th November 2022.
+
+https://qamar-back-end-project-nc-games.cyclic.app/api
+
+This was hosted with Heroku originally but following the retirement of the free tiers that I needed at the end of November 2022, I migrated this back end to using ElephantSQL and Cyclic.
 
 And here is the Netlify deployed link to my front-end:
 https://qamar-front-end-project.netlify.app/
