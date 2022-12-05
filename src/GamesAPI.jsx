@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-	baseURL: "https://qamars-b-end-proj-gamereviews.herokuapp.com/api",
+	baseURL: "https://qamar-back-end-project-nc-games.cyclic.app/api",
 });
 
 // ALL GET REQUESTS
